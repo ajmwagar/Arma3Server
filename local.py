@@ -3,7 +3,7 @@ import shutil
 
 def mods(d):
     mods = []
-    scan = [os.path.join(d,o) for o in os.listdir(d) if os.path.isdir(os.path.join(d,o))]
+    scan = [os.path.join(d,o) for o in os.listdir(d) if (os.path.isdir(os.path.join(d,o)) or os.path.islink(os.path.join(d,o)))]
     for m in scan:
         mods.append(m)
         keysdir = os.path.join(m,"keys")
